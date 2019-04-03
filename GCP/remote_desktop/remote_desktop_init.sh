@@ -1,30 +1,38 @@
 #!/bin/bash
 
+adduser centos
+password="centos1234"
+echo "${password}" | passwd "centos" --stdin
+#grant user sodo priv
+usermod -aG wheel centos
+#disable sudo password prompt
+echo '%wheel        ALL=(ALL)       NOPASSWD: ALL' >> /etc/sudoers
+
 #Setup vnc login password
-vnc_password="centos1234"
+vnc_password="${password}"
 
 #Install Extra Packages for Enterprise Linux (EPEL)..
-sudo yum install -y epel-release
+yum install -y epel-release
 
 #update all packages on the system
-sudo yum update -y
+yum update -y
 
 #Instlal xfce desktop
-sudo yum groupinstall -y "Xfce"
+yum groupinstall -y "Xfce"
 sleep 1
 
 #Install vnc server (remote access server)
-sudo yum install -y tigervnc-server
+yum install -y tigervnc-server
 
 #Install some common tools
-duso yum install -y vim htop tree
+sudo yum install -y vim htop tree wget git terminator maven
 
 #create a vnc config
-sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
+yes | cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
 sleep 1
 
 #Edit vnc config
-sudo bash -c "cat > /etc/systemd/system/vncserver@:1.service << EOF
+bash -c "cat > /etc/systemd/system/vncserver@:1.service << EOF
 [Unit]
 Description=Remote desktop service (VNC)
 After=syslog.target network.target
@@ -44,11 +52,11 @@ EOF"
 sleep 1
 
 #Enable vnc config
-sudo systemctl daemon-reload
-sudo systemctl enable vncserver@:1.service
+systemctl daemon-reload
+systemctl enable vncserver@:1.service
 
 #setup vnc password
-printf "$vnc_password\n$vnc_password\n\n" | vncpasswd
+su - centos -c "printf \"$vnc_password\n$vnc_password\n\n\" | vncpasswd"
 
 #fix xfce black screen issue
 bash -c 'cat > /home/centos/.vnc/xstartup << EOF
@@ -61,16 +69,25 @@ vncserver -kill \$DISPLAY
 EOF'
 chmod +x /home/centos/.vnc/xstartup
 cat /home/centos/.vnc/xstartup
+chown -R centos:centos /home/centos/
 
 #Start vnc server
-vncserver
+su - centos -c vncserver
 sleep 1
-vncserver -list
+su - centos -c "vncserver -list"
+sleep
+
+cd /tmp
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+yum localinstall -y google-chrome-stable_current_x86_64.rpm
+rm *rpm
+
+yum install -y java-1.8.0-openjdk-devel
 
 #Refresh service
-sudo systemctl daemon-reload
-sleep 1
-sudo systemctl restart vncserver@:1.service
-vncserver -list
+#systemctl daemon-reload
+#sleep 1
+#systemctl restart vncserver@:1.service
+#su - centos -c "vncserver -list"
 
 #reboot
