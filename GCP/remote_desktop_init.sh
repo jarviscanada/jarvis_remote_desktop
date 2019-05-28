@@ -1,8 +1,10 @@
 #!/bin/bash
 
+touch "_start_$(date '+%d/%m/%Y %H:%M:%S')"
+
 adduser centos
 password="centos1234"
-echo "${password}" | passwd "centos" --stdin
+echo -e "${password}" | passwd "centos" 
 #grant user sodo priv
 usermod -aG wheel centos
 #disable sudo password prompt
@@ -91,3 +93,4 @@ yum install -y java-1.8.0-openjdk-devel
 #su - centos -c "vncserver -list"
 
 #reboot
+touch "_finish_$(date '+%d/%m/%Y %H:%M:%S')"
