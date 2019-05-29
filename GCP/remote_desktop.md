@@ -1,4 +1,19 @@
-## Create VPC Firewall rules for VNC ports
+## Jarvis Remote Desktop on GCP
+
+Jarvis Remote Desktop (JRD) is a CentOS 7 based server which is installed with the following softwares
+
+- `VNC` (Virtual Network Computing) is a technology for remote desktop sharing, a form of remote access on computer networks.
+- `Xfce` is a lightweight desktop environment for UNIX-like operating systems. It consumes only about 256mb memory.
+- `Chrome`
+- `openjdk 1.8.0`
+- Utilities: vim htop tree wget git terminator maven
+
+Prerequisites:
+
+- Sign up GCP. You will need a personal credit credit card. You will get a $300 USD credit for a year. https://cloud.google.com/free/
+- A personal GitHub account ( private repos are free now!)
+
+## Setup Security and Firewalls
 
 ### Setup firewalls
 
