@@ -88,7 +88,11 @@ CentOS and RHEL: /var/log/messages
   xrandr --fb 1440x900
   ```
 
-* Troubleshooting
+* Change picture quaility if slow
+
+![image-20190528153741947](/Users/Edward/Library/Application Support/typora-user-images/image-20190528153741947.png)
+
+##### Troubleshooting
 
 * 1. Check vncserver service status
 
@@ -101,3 +105,64 @@ CentOS and RHEL: /var/log/messages
   5. Vncserver log and config location
 
   6. 1. `cd ~/.vnc/` 
+
+### Install Docker
+
+Change `centos` user password.
+
+```bash
+sudo su
+#you can ignore `BAD PASSWORD: The password contains the ..`
+#it's just a warning
+#make your password simple
+passwd "centos"
+
+vim ~/accounts
+#write down the passwod (bad practice, do not do this in production)
+```
+
+```
+sudo su
+#copy and paste docker_install.sh to termial
+#instance will reboot 
+
+#verify
+sudo systemctl status docker
+#start
+sudo systemctl start docker
+
+#sudo systemctl status|start|restart|stop docker
+
+#run this as centos user
+docker run hello-world
+
+#shut it down to save CPU/RAM
+sudo systemctl stop docker
+```
+
+### Install Intellij
+
+* Download Intllij Community version
+  (or Ultimate version if you bring your own liscense)
+
+```bash
+cd ~/Downloads
+tar xzf ideaIC-2019.1.3.tar.gz
+mkdir ~/apps
+mv idea-IC-191.7479.19 ~/apps
+cd ~/apps/idea-IC-191.7479.19/
+
+#diable android and swing plugins
+#install scala plugin
+#Ignore `XFCE PolicyKit Agent` auth if failed
+
+```
+
+### Stop Instance
+
+GCP charges running instances by minutes. 2vCPU and 7.5GB will cost you around $50-55 per month. Therefore, make sure you stop your instance every day to save costs. 
+
+![image-20190528220143701](/Users/Edward/Library/Application Support/typora-user-images/image-20190528220143701.png)
+
+When you restart your instance next time. You will get a new external/public IP, so make sure you update your VNC connection properties. 
+
