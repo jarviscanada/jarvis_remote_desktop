@@ -2,7 +2,7 @@
 
 Jarvis Remote Desktop (JRD) is designed for `Jarvis Java Cloud BigData Bootcamp` which allows developers to work on the same development environment. 
 
-JRD can be deployed to any cloud platform that supports CentOS 7.
+## Software
 
 JRD is a CentOS 7 based OS which is installed with the following software
 
@@ -14,3 +14,8 @@ JRD is a CentOS 7 based OS which is installed with the following software
 
 ![XFCE-4.12-Desktop-standard](assets/XFCE-4.12-Desktop-standard.png)
 
+## Deployment
+
+JRD can be deployed to any cloud platform that supports CentOS 7.
+
+Please follow the instructions in subdirectories
