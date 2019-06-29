@@ -1,4 +1,4 @@
-## Jarvis Remote Desktop on GCP
+# Jarvis Remote Desktop on GCP
 
 Jarvis Remote Desktop (JRD) is a CentOS 7 based server which is installed with the following softwares
 
@@ -34,7 +34,7 @@ Prerequisites:
 
 - Click `CREATE`
 
-#### Create a remote desktop VM instance
+## Create a remote desktop VM instance
 
 * Menu > Comupte Engine > VM instances
 
@@ -72,7 +72,7 @@ Prerequisites:
   #If you dont see _finish_datetime file in a while..go to troubleshooting section.
   ```
 
-#### Troubleshooting
+### Troubleshooting
 
 https://cloud.google.com/compute/docs/startupscript
 
@@ -83,11 +83,9 @@ startup script log file
 CentOS and RHEL: /var/log/messages
 ```
 
-### Connect to Remote Server
+## Connect to Remote Server
 
-#### Remote desktop
-
-* Install `RealVNC` viewer on your host machine
+* Install `RealVNC` viewer on your laptop/host_machine
 
 * Add new connection
 
@@ -108,7 +106,7 @@ CentOS and RHEL: /var/log/messages
 
 * Change picture quaility if slow
 
-##### Troubleshooting
+### Troubleshooting
 
 * 1. Check vncserver service status
 
@@ -122,9 +120,9 @@ CentOS and RHEL: /var/log/messages
 
   6. 1. `cd ~/.vnc/` 
 
-### Install Docker
+## Install Docker
 
-Change `centos` user password.
+(Optioanl) Change `centos` user password.
 
 ```bash
 sudo su
@@ -138,8 +136,9 @@ vim ~/accounts
 ```
 
 ```
+#go to JRD terminal
 sudo su
-#copy and paste docker_install.sh to termial
+#copy and paste docker_install.sh from github GCP/ directory) to terminal
 #instance will reboot 
 
 #verify
@@ -156,9 +155,9 @@ docker run hello-world
 sudo systemctl stop docker
 ```
 
-### Install Intellij
+## Install IntelliJ 
 
-* Download Intllij Community version
+* In JRD, use Chrome to download `IntlliJ Community version `
   (or Ultimate version if you bring your own liscense)
 
 ```bash

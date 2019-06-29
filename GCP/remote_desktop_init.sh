@@ -1,6 +1,11 @@
 #!/bin/bash
 
-touch "_start_$(date '+%d/%m/%Y %H:%M:%S')"
+touch /tmp/"_start_$(date '+%d-%m-%Y-%H:%M:%S')"
+if ls /tmp/_finish_*; then
+  echo "Instance is initialized"
+  echo "exit"
+  exit 0;
+fi
 
 adduser centos
 password="centos1234"
@@ -93,4 +98,4 @@ yum install -y java-1.8.0-openjdk-devel
 #su - centos -c "vncserver -list"
 
 #reboot
-touch "_finish_$(date '+%d/%m/%Y %H:%M:%S')"
+touch /tmp/"_finish_$(date '+%d-%m-%Y-%H:%M:%S')"
