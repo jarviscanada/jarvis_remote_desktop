@@ -87,7 +87,7 @@ CentOS and RHEL: /var/log/messages
 
 #### Remote desktop
 
-* Install `RealVNC` viewer
+* Install `RealVNC` viewer on your host machine
 
 * Add new connection
 
@@ -101,11 +101,12 @@ CentOS and RHEL: /var/log/messages
 
   ```
   xrandr --fb 1440x900
+  
+  alternative
+  In JRD, right click anywhere on the desktop `applications` > `settings` > `display`
   ```
 
 * Change picture quaility if slow
-
-![image-20190528153741947](/Users/Edward/Library/Application Support/typora-user-images/image-20190528153741947.png)
 
 ##### Troubleshooting
 
@@ -176,8 +177,6 @@ cd ~/apps/idea-IC-191.7479.19/
 ### Stop Instance
 
 GCP charges running instances by minutes. 2vCPU and 7.5GB will cost you around $50-55 per month. Therefore, make sure you stop your instance every day to save costs. 
-
-![image-20190528220143701](/Users/Edward/Library/Application Support/typora-user-images/image-20190528220143701.png)
 
 When you restart your instance next time. You will get a new external/public IP, so make sure you update your VNC connection properties. 
 
