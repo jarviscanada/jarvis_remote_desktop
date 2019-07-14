@@ -32,7 +32,7 @@ sleep 1
 yum install -y tigervnc-server
 
 #Install some common tools
-sudo yum install -y vim gvim htop tree wget git terminator
+sudo yum install -y vim gvim htop tree wget git terminator zip unzip
 
 #install openjdk1.8 (java 8)
 yum install -y java-1.8.0-openjdk-devel
