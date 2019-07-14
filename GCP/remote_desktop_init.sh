@@ -34,6 +34,9 @@ yum install -y tigervnc-server
 #Install some common tools
 sudo yum install -y vim htop tree wget git terminator
 
+#install openjdk1.8 (java 8)
+yum install -y java-1.8.0-openjdk-devel
+
 #install maven (yum can only install older version)
 cd /tmp
 wget http://apache.forsale.plus/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
@@ -104,8 +107,6 @@ cd /tmp
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 yum localinstall -y google-chrome-stable_current_x86_64.rpm
 rm *rpm
-
-yum install -y java-1.8.0-openjdk-devel
 
 #Refresh service
 #systemctl daemon-reload
