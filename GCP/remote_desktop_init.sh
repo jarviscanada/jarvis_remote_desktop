@@ -32,7 +32,23 @@ sleep 1
 yum install -y tigervnc-server
 
 #Install some common tools
-sudo yum install -y vim htop tree wget git terminator maven
+sudo yum install -y vim htop tree wget git terminator
+
+#install maven (yum can only install older version)
+cd /tmp
+wget http://apache.forsale.plus/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
+tar xf /tmp/apache-maven-3.6.1-bin.tar.gz -C /opt
+ln -s /opt/apache-maven-3.6.1/ /opt/maven
+bash -c 'cat > /etc/profile.d/maven.sh << EOF
+export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+EOF'
+chmod +x /etc/profile.d/maven.sh
+source /etc/profile.d/maven.sh
+mvn --version
+cd -
 
 #create a vnc config
 yes | cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
