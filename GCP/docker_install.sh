@@ -19,14 +19,14 @@ sudo yum-config-manager \
 sudo yum -y install docker-ce docker-ce-cli containerd.io
 
 #auto start
-sudo systemctl enable docker
+#sudo systemctl enable docker
 #start service
 sudo systemctl start docker
 sudo docker -v
 
 #allow centos user to run docker without sudo
-groupadd docker
-usermod -aG docker centos
+sudo groupadd docker
+sudo usermod -aG docker centos
 #must logout session
 exit
 
