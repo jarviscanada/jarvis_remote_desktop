@@ -122,7 +122,7 @@ CentOS and RHEL: /var/log/messages
 
 ## Install Docker
 
-(Optioanl) Change `centos` user password.
+(Optional) Change `centos` user password.
 
 ```bash
 sudo su
