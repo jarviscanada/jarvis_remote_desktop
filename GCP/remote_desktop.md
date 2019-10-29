@@ -1,16 +1,16 @@
 # Jarvis Remote Desktop on GCP
 
-Jarvis Remote Desktop (JRD) is a CentOS 7 based server which is installed with the following softwares
+Jarvis Remote Desktop (JRD) is a CentOS 7 based server which is installed with the following software
 
 - `VNC` (Virtual Network Computing) is a technology for remote desktop sharing, a form of remote access on computer networks.
 - `Xfce` is a lightweight desktop environment for UNIX-like operating systems. It consumes only about 256mb memory.
 - `Chrome`
-- `openjdk 1.8.0`
+- `OpenJDK 1.8.0`
 - Utilities: vim htop tree wget git terminator maven
 
 Prerequisites:
 
-- Sign up GCP. You will need a personal credit credit card. You will get a $300 USD credit for a year. https://cloud.google.com/free/
+- Sign up GCP. You will need a personal credit card. You will get a USD 300 credit for a year. https://cloud.google.com/free/
 - A personal GitHub account ( private repos are free now!)
 
 ## Setup Security and Firewalls
@@ -29,7 +29,7 @@ Prerequisites:
   Target tags=vnc
   Source IP ranges=0.0.0.0/0
   Protocals and ports
-  	tcp: 5900-5910
+      tcp: 5900-5910
   ```
 
 - Click `CREATE`
@@ -63,20 +63,20 @@ Prerequisites:
 * Verify
 
   ```bash
-  #Connect to the instance with SSH buttom
+  #Connect to the instance with SSH button
   ls /tmp/_*
   
   #/tmp/_start_datetime file indicate startup script start time
   #/tmp/_finish_datetime file indicate startup script finish time
   
-  #If you dont see _finish_datetime file in a while..go to troubleshooting section.
+  #If you don't see _finish_datetime file in a while..go to the troubleshooting section.
   ```
 
 ### Troubleshooting
 
 https://cloud.google.com/compute/docs/startupscript
 
-Use console `ssh` button to connect to the server
+Use the console `ssh` button to connect to the server
 
 ```
 startup script log file
@@ -90,7 +90,7 @@ CentOS and RHEL: /var/log/messages
 * Add new connection
 
   ```
-  #find external IP by click the instance details
+  #find external IP by clicking the instance details
   #this external IP is not static. It will change if you stop/start the instance
   35.224.241.10:5901
   ```
@@ -104,7 +104,7 @@ CentOS and RHEL: /var/log/messages
   In JRD, right click anywhere on the desktop `applications` > `settings` > `display`
   ```
 
-* Change picture quaility if slow
+* Change picture quality if slow
 
 ### Troubleshooting
 
@@ -116,7 +116,7 @@ CentOS and RHEL: /var/log/messages
 
   4. 1. `vncserver -list`
 
-  5. Vncserver log and config location
+  5. vncserver log and config location
 
   6. 1. `cd ~/.vnc/` 
 
@@ -132,13 +132,13 @@ sudo su
 passwd "centos"
 
 vim ~/accounts
-#write down the passwod (bad practice, do not do this in production)
+#write down the password (bad practice, do not do this in production)
 ```
 
 ```
 #go to JRD terminal
 sudo su
-#copy and paste docker_install.sh from github GCP/ directory) to terminal
+#copy and paste docker_install.sh from GitHub GCP/ directory) to terminal
 #instance will reboot 
 
 #verify
@@ -157,8 +157,8 @@ sudo systemctl stop docker
 
 ## Install IntelliJ 
 
-* In JRD, use Chrome to download `IntlliJ Community version `
-  (or Ultimate version if you bring your own liscense)
+* In JRD, use Chrome to download `IntelliJ Community version `
+  (or Ultimate version if you bring your license)
 
 ```bash
 cd ~/Downloads
@@ -178,4 +178,3 @@ cd ~/apps/idea-IC-191.7479.19/
 GCP charges running instances by minutes. 2vCPU and 7.5GB will cost you around $50-55 per month. Therefore, make sure you stop your instance every day to save costs. 
 
 When you restart your instance next time. You will get a new external/public IP, so make sure you update your VNC connection properties. 
-
