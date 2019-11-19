@@ -40,7 +40,7 @@ Prerequisites:
 
 * Create an instance
 
-  ```markdown
+  ```
   Name=jrvs-remote-desktop-centos7
   Region=us-east1
   Zone=us-east1-c
@@ -52,11 +52,16 @@ Prerequisites:
   Check `Allow Full access to all Cloud APIs`
   Check `Allow HTTP traffic`
   Check `Allow HTTPS traffic`
-  
-  Click `Management, security, disks, networking, sole tenancy
-    Startup script=copy ./remote_desktop_init.sh
-    Network tab > Network tags=vnc
   ```
+  
+* Click `Management, security, disks, networking, sole tenancy` 
+
+  * Copy and paste  [start up script](./remote_desktop_init.sh) content to `Startup script` texbox
+    ![8C7D5DAC-2762-4768-83BA-53DF2F6B1EC2](assets/8C7D5DAC-2762-4768-83BA-53DF2F6B1EC2.png)
+  
+* Go to `Network tab` 
+
+  ![2EC83912-E638-4B3B-A833-E2DCADCB56FA](assets/2EC83912-E638-4B3B-A833-E2DCADCB56FA.png)
 
 * Click `CREATE`
 
