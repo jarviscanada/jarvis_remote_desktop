@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su centos
+
 #instasll docker
 sudo yum remove -y docker \
                   docker-client \
