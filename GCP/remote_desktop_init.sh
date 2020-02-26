@@ -114,5 +114,7 @@ rm *rpm
 #systemctl restart vncserver@:1.service
 #su - centos -c "vncserver -list"
 
-#reboot
+#create a finish file
 touch /tmp/"_finish_$(date '+%d-%m-%Y-%H:%M:%S')"
+
+exit 0
