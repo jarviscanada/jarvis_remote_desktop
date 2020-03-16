@@ -39,9 +39,9 @@ yum install -y java-1.8.0-openjdk-devel
 
 #install maven (yum can only install older version)
 cd /tmp
-wget http://apache.forsale.plus/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
-tar xf /tmp/apache-maven-3.6.1-bin.tar.gz -C /opt
-ln -s /opt/apache-maven-3.6.1/ /opt/maven
+wget http://apache.forsale.plus/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+tar xf /tmp/apache-maven-3.6.3-bin.tar.gz -C /opt
+ln -s /opt/apache-maven-3.6.3/ /opt/maven
 bash -c 'cat > /etc/profile.d/maven.sh << EOF
 export JAVA_HOME=/usr/lib/jvm/jre-openjdk
 export M2_HOME=/opt/maven
