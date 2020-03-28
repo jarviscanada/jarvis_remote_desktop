@@ -1,6 +1,6 @@
 ## Jarvis Remote Desktop (JRD)
 
-Jarvis Remote Desktop (JRD) is designed for `Jarvis Java Cloud BigData Bootcamp` which allows developers to work on the same development environment. 
+Jarvis Remote Desktop (JRD) is designed for `Jarvis Training` which allows developers to work on the same development environment. 
 
 ## Software
 
